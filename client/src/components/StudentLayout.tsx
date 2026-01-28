@@ -4,7 +4,6 @@ import { useAuth } from "@/hooks/use-auth";
 import { 
   LogOut, 
   Rocket, 
-  Home, 
   Gamepad2, 
   Trophy 
 } from "lucide-react";
@@ -19,22 +18,22 @@ export function StudentLayout({ children }: StudentLayoutProps) {
   const [location] = useLocation();
 
   const navItems = [
-    { href: "/student/dashboard", icon: Home, label: "My Room" },
+    { href: "/student/dashboard", icon: Gamepad2, label: "Arcade" },
     { href: "/student/mission-control", icon: Rocket, label: "Missions" },
-    { href: "/student/achievements", icon: Trophy, label: "Awards" },
+    { href: "/student/achievements", icon: Trophy, label: "Rewards" },
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50 font-sans selection:bg-purple-200">
+    <div className="min-h-screen bg-sky-50 font-sans selection:bg-indigo-200">
       {/* Top Bar */}
-      <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-indigo-100 px-4 py-3 shadow-sm">
+      <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-indigo-100 px-4 py-3 shadow-sm">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-indigo-500 to-purple-500 flex items-center justify-center text-white font-display text-xl">
-              EK
+            <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-sky-500 via-indigo-500 to-violet-500 flex items-center justify-center text-white font-display text-xl shadow-md">
+              MK
             </div>
             <h1 className="font-display text-xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent hidden sm:block">
-              EduKid
+              MathKid
             </h1>
           </div>
           

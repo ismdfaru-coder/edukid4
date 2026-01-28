@@ -2,10 +2,9 @@ import { useState } from "react";
 import { useAuth } from "@/hooks/use-auth";
 import { useTopics } from "@/hooks/use-learning";
 import { StudentLayout } from "@/components/StudentLayout";
-import { Card } from "@/components/ui/card";
-import { Link, useLocation } from "wouter";
+import { useLocation } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
-import { Play, Star, Zap, Leaf, Calculator, Plus, Minus, X, Divide, Loader2, Trophy, Gamepad2 } from "lucide-react";
+import { Gamepad2, Loader2, Star, Trophy } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const SUBJECTS = [
@@ -15,10 +14,10 @@ const SUBJECTS = [
 ];
 
 const GAMES = [
-  { id: "racing", name: "Number Racing", icon: "🏎️", description: "Race to answer questions!" },
-  { id: "rocket", name: "Rocket Launch", icon: "🚀", description: "Blast off with correct answers!" },
-  { id: "puzzle", name: "Brain Puzzle", icon: "🧩", description: "Solve puzzles to progress!" },
-  { id: "adventure", name: "Math Adventure", icon: "⚔️", description: "Battle with your brain!" },
+  { id: "racing", name: "Number Rally", icon: "🏎️", description: "Answer a question, then dash in the mini-game." },
+  { id: "rocket", name: "Rocket Boost", icon: "🚀", description: "Fuel up between answers to launch higher." },
+  { id: "puzzle", name: "Puzzle Pop", icon: "🧩", description: "Unlock a new piece after every answer." },
+  { id: "adventure", name: "Quest Sprint", icon: "⚔️", description: "Keep your streak alive on the quest." },
 ];
 
 const topicIcons: Record<string, string> = {
@@ -55,6 +54,11 @@ export default function StudentDashboard() {
   const [showGameSelect, setShowGameSelect] = useState(false);
   
   const { data: topics, isLoading } = useTopics("KS2", selectedSubject);
+  const averageMastery = topics?.length
+    ? Math.round(
+        (topics.reduce((sum, topic) => sum + (topic.mastery || 0), 0) / topics.length) * 100
+      )
+    : 0;
 
   const handleTopicClick = (topicId: number) => {
     setSelectedTopic(topicId);
@@ -70,20 +74,56 @@ export default function StudentDashboard() {
   return (
     <StudentLayout>
       <div className="space-y-6">
-        <header className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-          <div>
-            <h1 className="text-3xl md:text-4xl font-display font-bold text-slate-800">
-              Welcome back, {user?.firstName}! 👋
+        <header className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-sky-500 via-indigo-500 to-violet-600 p-6 text-white">
+          <div className="absolute -top-16 -right-10 h-40 w-40 rounded-full bg-white/20" />
+          <div className="absolute -bottom-20 -left-10 h-56 w-56 rounded-full bg-white/10" />
+          <div className="relative z-10 space-y-4">
+            <div className="flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em]">
+              <span className="rounded-full bg-white/20 px-3 py-1">MathKid Arcade</span>
+              <span className="rounded-full bg-white/20 px-3 py-1">Answer + play</span>
+            </div>
+            <h1 className="text-3xl md:text-4xl font-display font-bold">
+              Welcome back, {user?.firstName}!
             </h1>
-            <p className="text-slate-500 text-lg mt-1">Choose a subject and start playing!</p>
-          </div>
-          <div className="flex items-center gap-3 bg-gradient-to-r from-amber-100 to-yellow-100 px-4 py-2 rounded-xl border border-amber-200">
-            <span className="text-2xl">🪙</span>
-            <span className="font-bold text-amber-700 text-xl">{user?.coins || 0} coins</span>
+            <p className="text-white/90 text-base md:text-lg max-w-2xl">
+              Answer questions to power the mini-game between every round. Pick a subject to start playing.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div className="rounded-2xl bg-white/15 p-4 flex items-center gap-3">
+                <Gamepad2 className="w-6 h-6 text-white" />
+                <div>
+                  <p className="text-xs uppercase tracking-wider text-white/80">Games ready</p>
+                  <p className="text-xl font-bold">{GAMES.length}</p>
+                </div>
+              </div>
+              <div className="rounded-2xl bg-white/15 p-4 flex items-center gap-3">
+                <Trophy className="w-6 h-6 text-white" />
+                <div>
+                  <p className="text-xs uppercase tracking-wider text-white/80">Coins</p>
+                  <p className="text-xl font-bold">{user?.coins || 0}</p>
+                </div>
+              </div>
+              <div className="rounded-2xl bg-white/15 p-4 flex items-center gap-3">
+                <Star className="w-6 h-6 text-white" />
+                <div>
+                  <p className="text-xs uppercase tracking-wider text-white/80">Mastery</p>
+                  <p className="text-xl font-bold">{averageMastery}%</p>
+                </div>
+              </div>
+            </div>
           </div>
         </header>
 
-        <div className="flex gap-4 p-2 bg-slate-100 rounded-2xl w-fit">
+        <div className="flex flex-wrap items-end justify-between gap-3">
+          <div>
+            <h2 className="text-xl font-display font-bold text-slate-800">Choose a subject</h2>
+            <p className="text-sm text-slate-500">
+              Each answer triggers a mini-game moment in your chosen game.
+            </p>
+          </div>
+        </div>
+
+        <div className="flex gap-4 p-2 bg-white/80 rounded-2xl w-fit shadow-sm border border-slate-200">
           {SUBJECTS.map((subject) => (
             <motion.button
               key={subject.id}
@@ -124,7 +164,7 @@ export default function StudentDashboard() {
                 whileHover={{ y: -5, scale: 1.02 }}
                 onClick={() => handleTopicClick(topic.id)}
                 className={cn(
-                  "bg-gradient-to-br rounded-3xl p-6 text-white shadow-lg cursor-pointer h-48 flex flex-col justify-between relative overflow-hidden group",
+                  "bg-gradient-to-br rounded-3xl p-6 text-white shadow-lg cursor-pointer h-48 flex flex-col justify-between relative overflow-hidden group game-card",
                   topicColors[topic.name] || "from-slate-400 to-slate-600"
                 )}
               >
@@ -173,8 +213,8 @@ export default function StudentDashboard() {
               >
                 <div className="text-center mb-8">
                   <Gamepad2 className="w-16 h-16 mx-auto text-indigo-500 mb-4" />
-                  <h2 className="text-3xl font-display font-bold text-slate-800">Choose Your Game!</h2>
-                  <p className="text-slate-500 mt-2">Pick a game to play while you learn</p>
+                  <h2 className="text-3xl font-display font-bold text-slate-800">Choose Your MathKid Game</h2>
+                  <p className="text-slate-500 mt-2">Every answer powers a mini-game moment</p>
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">

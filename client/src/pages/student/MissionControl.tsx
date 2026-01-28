@@ -13,10 +13,10 @@ const SUBJECTS = [
 ];
 
 const GAMES = [
-  { id: "racing", name: "Number Racing", icon: "🏎️", description: "Race to answer questions!" },
-  { id: "rocket", name: "Rocket Launch", icon: "🚀", description: "Blast off with correct answers!" },
-  { id: "puzzle", name: "Brain Puzzle", icon: "🧩", description: "Solve puzzles to progress!" },
-  { id: "adventure", name: "Math Adventure", icon: "⚔️", description: "Battle with your brain!" },
+  { id: "racing", name: "Number Rally", icon: "🏎️", description: "Answer a question, then dash in the mini-game." },
+  { id: "rocket", name: "Rocket Boost", icon: "🚀", description: "Fuel up between answers to launch higher." },
+  { id: "puzzle", name: "Puzzle Pop", icon: "🧩", description: "Unlock a new piece after every answer." },
+  { id: "adventure", name: "Quest Sprint", icon: "⚔️", description: "Keep your streak alive on the quest." },
 ];
 
 const topicIcons: Record<string, string> = {
@@ -73,12 +73,30 @@ export default function MissionControl() {
   return (
     <StudentLayout>
       <div className="space-y-6">
-        <header>
-          <h2 className="text-3xl font-display font-bold text-slate-800">Mission Control</h2>
-          <p className="text-slate-500 text-lg">Choose a mission to earn coins!</p>
+        <header className="rounded-3xl bg-white shadow-sm border border-slate-200 p-6">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-indigo-400">MathKid Missions</p>
+              <h2 className="text-3xl font-display font-bold text-slate-800">Mission Control</h2>
+              <p className="text-slate-500 text-lg">
+                Choose a mission, answer questions, and enjoy mini-game moments between rounds.
+              </p>
+            </div>
+            <div className="flex items-center gap-3 rounded-2xl bg-indigo-50 px-4 py-3 text-indigo-700 text-sm font-semibold">
+              <Gamepad2 className="w-5 h-5" />
+              <span>Mini-games between every answer</span>
+            </div>
+          </div>
         </header>
 
-        <div className="flex gap-4 p-2 bg-slate-100 rounded-2xl w-fit">
+        <div className="flex flex-wrap items-end justify-between gap-3">
+          <div>
+            <h3 className="text-xl font-display font-bold text-slate-800">Select a subject</h3>
+            <p className="text-sm text-slate-500">Pick a topic and launch a mission.</p>
+          </div>
+        </div>
+
+        <div className="flex gap-4 p-2 bg-white/80 rounded-2xl w-fit shadow-sm border border-slate-200">
           {SUBJECTS.map((subject) => (
             <motion.button
               key={subject.id}
@@ -111,7 +129,7 @@ export default function MissionControl() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
             >
-              <Card className="overflow-hidden border-2 hover:border-indigo-400 transition-colors group cursor-pointer relative">
+              <Card className="overflow-hidden border-2 hover:border-indigo-400 transition-colors group cursor-pointer relative game-card shadow-sm">
                 <div className={cn(
                   "h-32 bg-gradient-to-r flex items-center justify-center",
                   topicColors[topic.name] || "from-slate-200 to-slate-300"
@@ -151,7 +169,7 @@ export default function MissionControl() {
                       className="w-full py-3 bg-indigo-600 text-white rounded-xl font-bold text-lg hover:bg-indigo-700 hover:shadow-lg hover:-translate-y-1 transition-all flex items-center justify-center gap-2"
                     >
                       <Play className="w-5 h-5 fill-current" />
-                      Play Now
+                      Start Mission
                     </button>
                   </div>
                 </div>
@@ -178,8 +196,8 @@ export default function MissionControl() {
               >
                 <div className="text-center mb-8">
                   <Gamepad2 className="w-16 h-16 mx-auto text-indigo-500 mb-4" />
-                  <h2 className="text-3xl font-display font-bold text-slate-800">Choose Your Game!</h2>
-                  <p className="text-slate-500 mt-2">Pick a game to play while you learn</p>
+                  <h2 className="text-3xl font-display font-bold text-slate-800">Choose Your MathKid Game</h2>
+                  <p className="text-slate-500 mt-2">Every answer powers a mini-game moment</p>
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">
