@@ -1,0 +1,127 @@
+1️⃣ Prodigy Math Game
+
+Type: Web + Mobile RPG‑style math game.
+
+Likely Tech/API:
+
+Uses custom HTML5/Canvas + JavaScript game engine for browser.
+
+Mobile apps likely built with Unity (popular for RPG‑style animations).
+
+Backend APIs handle question generation, adaptive learning, and progress tracking.
+
+Note: The adaptive question engine is custom AI/rule-based, not a 3rd-party “game API.”
+
+2️⃣ Cool Math Games
+
+Type: Web browser games (flash-style, now HTML5).
+
+Tech:
+
+Originally Flash; now mostly HTML5/JavaScript/Canvas games.
+
+Many games are made with Phaser.js (popular 2D JS game engine) or Construct.
+
+Individual games may have their own APIs for scoring or level progression.
+
+3️⃣ Math Playground
+
+Type: Browser-based interactive math games.
+
+Tech:
+
+HTML5 + JavaScript + Canvas.
+
+Some games use Phaser.js, PixiJS, or custom JS frameworks.
+
+Animations like drag-and-drop, puzzles are built with JS/Canvas libraries.
+
+4️⃣ Buzzmath
+
+Type: Interactive math with storyline and animated challenges.
+
+Tech:
+
+Web-based, likely HTML5/Canvas + JS animation frameworks.
+
+Backend APIs for tracking student progress and adaptive difficulty.
+
+5️⃣ SplashLearn (Splash Math)
+
+Type: Math learning platform with animated games.
+
+Tech:
+
+Uses HTML5/JavaScript for games.
+
+Likely PixiJS or Phaser.js for 2D interactive animations.
+
+REST APIs for student accounts, progress tracking, and gamification rewards.
+
+6️⃣ ABCya!
+
+Type: Web browser games for young kids.
+
+Tech:
+
+HTML5/JS + CSS animations, formerly Flash.
+
+Individual games may use Phaser.js, CreateJS, or other lightweight JS engines.
+
+7️⃣ Funbrain
+
+Type: Browser-based games + videos.
+
+Tech:
+
+HTML5 / JavaScript.
+
+Animations are usually Canvas or SVG based, custom-coded for each game.
+
+8️⃣ BrainPOP GameUp
+
+Type: Animated games for different subjects.
+
+Tech:
+
+Games are developed by 3rd-party vendors, most are HTML5/JS.
+
+Uses web-based game APIs like Phaser.js or custom engines.
+
+Backend APIs track classroom progress, scores, badges.
+
+9️⃣ Starfall
+
+Type: Early learner interactive games.
+
+Tech:
+
+HTML5/JS.
+
+Lightweight animations using Canvas, SVG, and JS DOM manipulation.
+
+Likely no heavy game engine; mainly custom JS interactions.
+
+🔟 IXL Learning
+
+Type: Adaptive learning platform with gamification.
+
+Tech:
+
+HTML5/JS for interactive problems.
+
+Animations minimal; mostly dynamic DOM + CSS animations.
+
+Backend APIs handle student tracking, scoring, badges.
+
+1️⃣1️⃣ IntoScience
+
+Type: 3D immersive interactive science learning.
+
+Tech:
+
+Unity or Unreal Engine for 3D games.
+
+WebGL for browser-based 3D content.
+
+APIs manage quests, scoring, and progress tracking

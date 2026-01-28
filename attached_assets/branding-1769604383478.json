@@ -1,0 +1,121 @@
+{
+  "colorScheme": "dark",
+  "fonts": [
+    {
+      "family": "sans-serif",
+      "count": 78
+    },
+    {
+      "family": "rubik",
+      "count": 76
+    },
+    {
+      "family": "helvetica",
+      "count": 76
+    },
+    {
+      "family": "arial",
+      "count": 76
+    },
+    {
+      "family": "Rubik",
+      "count": 2
+    },
+    {
+      "family": "Helvetica",
+      "count": 2
+    },
+    {
+      "family": "Arial",
+      "count": 2
+    }
+  ],
+  "colors": {
+    "primary": "#FFC500",
+    "accent": "#3D1947",
+    "background": "#262626",
+    "textPrimary": "#3D1947",
+    "link": "#3D1947"
+  },
+  "typography": {
+    "fontFamilies": {
+      "primary": "rubik",
+      "heading": "rubik"
+    },
+    "fontStacks": {
+      "body": [
+        "rubik",
+        "helvetica",
+        "arial",
+        "sans-serif"
+      ],
+      "heading": [
+        "rubik",
+        "helvetica",
+        "arial",
+        "sans-serif"
+      ],
+      "paragraph": [
+        "rubik",
+        "helvetica",
+        "arial",
+        "sans-serif"
+      ]
+    },
+    "fontSizes": {
+      "h1": "36px",
+      "h2": "18px",
+      "body": "14px"
+    }
+  },
+  "spacing": {
+    "baseUnit": 4,
+    "borderRadius": "3px"
+  },
+  "components": {
+    "input": {
+      "background": "#211F21",
+      "textColor": "#FFFFFF",
+      "borderColor": "#5B3D64",
+      "borderRadius": "3px",
+      "borderRadiusCorners": {
+        "topLeft": "3px",
+        "topRight": "3px",
+        "bottomRight": "3px",
+        "bottomLeft": "3px"
+      },
+      "shadow": "none"
+    }
+  },
+  "images": {
+    "logo": "https://static.wikia.nocookie.net/sumdog/images/e/e6/Site-logo.png/revision/latest?cb=20210719232836",
+    "favicon": "https://sumdog.fandom.com/skins-ucp/mw143/common/favicon.ico",
+    "ogImage": "https://static.wikia.nocookie.net/sumdog/images/5/58/Junkpile_Icon.png/revision/latest?cb=20220602133237"
+  },
+  "__framework_hints": [
+    "MediaWiki 1.43.1"
+  ],
+  "__llm_logo_reasoning": {
+    "selectedIndex": 1,
+    "reasoning": "Strong indicators: in header, header location, visible, highest logo on page, src contains logo, alt exactly matches brand name \"Sumdog Wiki\", reasonable size. Score: 102 (clear winner by 34 points)",
+    "confidence": 0.9
+  },
+  "__llm_button_reasoning": {
+    "primary": {
+      "index": -1,
+      "text": "N/A",
+      "reasoning": "LLM failed"
+    },
+    "secondary": {
+      "index": -1,
+      "text": "N/A",
+      "reasoning": "LLM failed"
+    },
+    "confidence": 0
+  },
+  "confidence": {
+    "buttons": 0,
+    "colors": 0,
+    "overall": 0
+  }
+}
