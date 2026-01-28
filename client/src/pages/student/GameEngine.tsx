@@ -1,26 +1,24 @@
-import { useState, useEffect, useCallback } from "react";
-import { useRoute, useLocation, useSearch } from "wouter";
-import { useQuestion, useSubmitAnswer } from "@/hooks/use-learning";
-import { motion, AnimatePresence } from "framer-motion";
-import { Loader2, ArrowLeft, Check, X, Clock, Trophy, Star, Zap } from "lucide-react";
-import { cn } from "@/lib/utils";
-import confetti from "canvas-confetti";
-
+import { useLocation, useRoute, useSearch } from "wouter";
 import JunkpileGame from "@/components/JunkpileGame";
 
 export default function GameEngine() {
   const [, params] = useRoute("/student/play/:topicId");
   const [, setLocation] = useLocation();
+  const search = useSearch();
   const topicId = Number(params?.topicId);
+  const gameId = new URLSearchParams(search).get("game") || "racing";
 
   if (!topicId) return null;
 
   return (
-    <div className="container mx-auto py-8">
-      <JunkpileGame 
-        topicId={topicId} 
-        onComplete={() => setLocation("/student/dashboard")} 
-      />
+    <div className="min-h-screen bg-slate-50">
+      <div className="container mx-auto py-8">
+        <JunkpileGame 
+          topicId={topicId} 
+          gameId={gameId}
+          onComplete={() => setLocation("/student/dashboard")} 
+        />
+      </div>
     </div>
   );
 }

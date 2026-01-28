@@ -44,7 +44,7 @@ export function AdminLayout({ children }: AdminLayoutProps) {
       <aside className="w-64 bg-white border-r border-slate-200 hidden md:flex flex-col sticky top-0 h-screen">
         <div className="p-6">
           <h1 className="text-2xl font-bold text-slate-900 flex items-center gap-2 font-display">
-            <span className="text-primary text-3xl">✦</span> EduKid
+            <span className="text-primary text-3xl">✦</span> MathKid
           </h1>
           <p className="text-xs text-slate-500 uppercase tracking-wider font-semibold mt-1 ml-9">
             {isTeacher ? "Teacher Portal" : "Parent Portal"}
@@ -88,7 +88,7 @@ export function AdminLayout({ children }: AdminLayoutProps) {
       <div className="flex-1 flex flex-col min-w-0">
         {/* Mobile Header */}
         <header className="bg-white border-b border-slate-200 md:hidden p-4 flex items-center justify-between sticky top-0 z-20">
-          <h1 className="text-xl font-bold font-display">EduKid</h1>
+          <h1 className="text-xl font-bold font-display">MathKid</h1>
           <Button size="icon" variant="ghost" onClick={() => logout()}>
             <LogOut className="w-5 h-5" />
           </Button>

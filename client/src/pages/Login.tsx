@@ -1,16 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useAuth } from "@/hooks/use-auth";
-import { PicturePassword } from "@/components/PicturePassword";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { GraduationCap, Baby, Users, ArrowRight, Loader2, Rocket } from "lucide-react";
-import { loginSchema as sharedLoginSchema } from "@shared/routes";
+import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
+import { GraduationCap, Baby, Users } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const localLoginSchema = z.object({
@@ -61,7 +57,7 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900 flex items-center justify-center p-4 overflow-hidden">
+    <div className="min-h-screen w-full bg-gradient-to-br from-sky-600 via-indigo-700 to-violet-700 flex items-center justify-center p-4 overflow-hidden">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[...Array(20)].map((_, i) => (
           <motion.div
@@ -105,7 +101,7 @@ export default function Login() {
         </div>
 
         <motion.div 
-          className="bg-gradient-to-br from-violet-600 via-purple-600 to-fuchsia-600 rounded-2xl overflow-hidden border-[3px] border-white/20 shadow-[0_0_60px_rgba(139,92,246,0.5)]"
+          className="bg-gradient-to-br from-sky-600 via-indigo-600 to-violet-600 rounded-2xl overflow-hidden border-[3px] border-white/20 shadow-[0_0_60px_rgba(59,130,246,0.5)]"
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.5 }}
@@ -117,7 +113,7 @@ export default function Login() {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <div className="w-6 h-6 bg-yellow-400 rounded-sm border-2 border-black flex items-center justify-center text-[10px] text-black font-bold">DOG</div>
+              <div className="w-6 h-6 bg-yellow-400 rounded-sm border-2 border-black flex items-center justify-center text-[10px] text-black font-bold">MK</div>
               <span className="text-[10px] font-bold uppercase">Student</span>
             </motion.button>
             <motion.button 
@@ -148,12 +144,12 @@ export default function Login() {
               }}
               transition={{ duration: 2, repeat: Infinity }}
             >
-              PLAY EDUKID!
+              PLAY MATHKID!
             </motion.h1>
             
             <div className="space-y-4">
               <Button variant="outline" className="w-full bg-white/90 text-purple-700 border-2 border-white h-10 rounded-xl shadow-lg font-bold hover:bg-white hover:scale-105 transition-transform">
-                Log in with MyLogin
+                Log in with School ID
               </Button>
 
               <div className="relative flex items-center justify-center">
